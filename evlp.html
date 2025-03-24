@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVチャージマッチ - EVスタンド工事の最適な業者とマッチング</title>
+    <meta name="description" content="EVスタンド工事の悩みを解決。最適な業者と最短でマッチングするプラットフォーム。専門知識がなくても、比較・検討・発注までをスムーズに。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体スタイル */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        /* 全体カラースキーム */
+        :root {
+          --primary-color: #00A170; /* メインカラー（グリーン） */
+          --secondary-color: #0077B6; /* アクセントカラー（ブルー） */
+          --dark-color: #333333; /* テキスト用ダークカラー */
+          --light-color: #FFFFFF; /* 背景用ライトカラー */
+          --gray-color: #F5F5F5; /* セクション背景用グレー */
+          --highlight-color: #FFD166; /* 強調用イエロー */
+          --success-color: #06D6A0; /* 成功表示用グリーン */
+          --font-main: 'Noto Sans JP', sans-serif; /* メインフォント */
+        }
+
+        /* レイアウト設計 */
+
+        /* 1. ヒーローセクション */
+        .hero-section {
+          background-image: url('ev-charging-station.jpg');
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          min-height: 600px;
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+
+        .hero-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* オーバーレイ */
+        }
+
+        .hero-content {
+          position: relative;
+          z-index: 1;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 0 20px;
+          text-align: center;
+          color: var(--light-color);
+        }
+
+        .hero-title {
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          line-height: 1.2;
+        }
+
+        .hero-subtitle {
+          font-size: 1.5rem;
+          margin-bottom: 2.5rem;
+          line-height: 1.5;
+        }
+
+        .cta-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        .cta-primary {
+          background-color: var(--primary-color);
+          color: var(--light-color);
+          padding: 15px 30px;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .cta-secondary {
+          background-color: transparent;
+          color: var(--light-color);
+          border: 2px solid var(--light-color);
+          padding: 15px 30px;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        /* 2. 市場動向・背景セクション */
+        .market-section {
+          padding: 100px 0;
+          background-color: var(--light-color);
+        }
+
+        .section-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .market-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          align-items: center;
+        }
+
+        .market-text {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: var(--dark-color);
+        }
+
+        .market-chart {
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 3. 課題提起セクション */
+        .problems-section {
+          padding: 100px 0;
+          background-color: var(--gray-color);
+        }
+
+        .problems-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .problems-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+        }
+
+        .problem-card {
+          background-color: var(--light-color);
+          border-radius: 10px;
+          padding: 30px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-icon {
+          font-size: 3rem;
+          color: var(--secondary-color);
+          margin-bottom: 20px;
+        }
+
+        .problem-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: var(--dark-color);
+        }
+
+        .problem-text {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--dark-color);
+        }
+
+        /* 4. サービス価値提案セクション */
+        .value-section {
+          padding: 100px 0;
+          background-color: var(--light-color);
+        }
+
+        .value-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .value-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+        }
+
+        .value-card {
+          padding: 40px;
+          border-radius: 10px;
+          background-color: var(--gray-color);
+          transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+          background-color: var(--primary-color);
+          color: var(--light-color);
+        }
+
+        .value-card:hover .value-icon {
+          color: var(--light-color);
+        }
+
+        .value-icon {
+          font-size: 3rem;
+          color: var(--primary-color);
+          margin-bottom: 20px;
+          transition: all 0.3s ease;
+        }
+
+        .value-card-title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+        }
+
+        .value-text {
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
+
+        /* 5. サービスの仕組みセクション */
+        .process-section {
+          padding: 100px 0;
+          background-color: var(--gray-color);
+        }
+
+        .process-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .process-steps {
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+
+        .process-steps::before {
+          content: '';
+          position: absolute;
+          top: 50px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: var(--primary-color);
+          z-index: 1;
+        }
+
+        .process-step {
+          position: relative;
+          z-index: 2;
+          width: 22%;
+          text-align: center;
+        }
+
+        .step-number {
+          width: 100px;
+          height: 100px;
+          background-color: var(--primary-color);
+          color: var(--light-color);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 0 auto 30px;
+        }
+
+        .step-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: var(--dark-color);
+        }
+
+        .step-text {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--dark-color);
+        }
+
+        /* 6. 導入事例セクション */
+        .cases-section {
+          padding: 100px 0;
+          background-color: var(--light-color);
+        }
+
+        .cases-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .cases-slider {
+          max-width: 1000px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        .case-card {
+          background-color: var(--gray-color);
+          border-radius: 10px;
+          padding: 40px;
+          margin: 0 15px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .case-company {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: var(--dark-color);
+        }
+
+        .case-type {
+          font-size: 1rem;
+          color: var(--secondary-color);
+          margin-bottom: 20px;
+        }
+
+        .case-subtitle {
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: var(--dark-color);
+        }
+
+        .case-text {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--dark-color);
+          margin-bottom: 15px;
+        }
+
+        /* 7. 選ばれる理由セクション */
+        .reasons-section {
+          padding: 100px 0;
+          background-color: var(--gray-color);
+        }
+
+        .reasons-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .reasons-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+        }
+
+        .reason-card {
+          background-color: var(--light-color);
+          border-radius: 10px;
+          padding: 30px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          text-align: center;
+          transition: all 0.3s ease;
+        }
+
+        .reason-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .reason-icon {
+          font-size: 3rem;
+          color: var(--primary-color);
+          margin-bottom: 20px;
+        }
+
+        .reason-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: var(--dark-color);
+        }
+
+        .reason-text {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--dark-color);
+        }
+
+        /* 8. よくある質問（FAQ）セクション */
+        .faq-section {
+          padding: 100px 0;
+          background-color: var(--light-color);
+        }
+
+        .faq-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--dark-color);
+        }
+
+        .faq-container {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .faq-item {
+          margin-bottom: 20px;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+          background-color: var(--gray-color);
+          padding: 20px 30px;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: var(--dark-color);
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .faq-answer {
+          background-color: var(--light-color);
+          padding: 20px 30px;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--dark-color);
+        }
+
+        /* 9. CTA（行動喚起）セクション */
+        .final-cta-section {
+          padding: 100px 0;
+          background-color: var(--primary-color);
+          color: var(--light-color);
+          text-align: center;
+        }
+
+        .final-cta-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 30px;
+        }
+
+        .final-cta-text {
+          font-size: 1.2rem;
+          line-height: 1.8;
+          max-width: 800px;
+          margin: 0 auto 40px;
+        }
+
+        .final-cta-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        .final-cta-primary {
+          background-color: var(--light-color);
+          color: var(--primary-color);
+          padding: 15px 30px;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .final-cta-secondary {
+          background-color: transparent;
+          color: var(--light-color);
+          border: 2px solid var(--light-color);
+          padding: 15px 30px;
+          border-radius: 50px;
+          font-weight: 700;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        /* 10. フッターセクション */
+        .footer-section {
+          padding: 80px 0 40px;
+          background-color: var(--dark-color);
+          color: var(--light-color);
+        }
+
+        .footer-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr;
+          gap: 50px;
+        }
+
+        .footer-company {
+          margin-bottom: 20px;
+        }
+
+        .footer-logo {
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        .footer-address {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        .footer-contact {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .footer-links-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        .footer-links {
+          list-style: none;
+          padding: 0;
+        }
+
+        .footer-link {
+          margin-bottom: 10px;
+        }
+
+        .footer-link a {
+          color: var(--light-color);
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .footer-link a:hover {
+          color: var(--primary-color);
+        }
+
+        .footer-social {
+          display: flex;
+          gap: 15px;
+          margin-top: 20px;
+        }
+
+        .social-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: var(--light-color);
+          color: var(--dark-color);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+          background-color: var(--primary-color);
+          color: var(--light-color);
+        }
+
+        .footer-bottom {
+          max-width: 1200px;
+          margin: 60px auto 0;
+          padding: 20px 20px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: center;
+          font-size: 0.9rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 1024px) {
+          .hero-title {
+            font-size: 2.5rem;
+          }
+          
+          .hero-subtitle {
+            font-size: 1.3rem;
+          }
+          
+          .market-content {
+            grid-template-columns: 1fr;
+          }
+          
+          .problems-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          .value-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .process-steps {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .process-steps::before {
+            display: none;
+          }
+          
+          .process-step {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 50px;
+          }
+          
+          .reasons-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          .footer-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 2rem;
+          }
+          
+          .hero-subtitle {
+            font-size: 1.1rem;
+          }
+          
+          .cta-buttons {
+            flex-direction: column;
+            gap: 15px;
+          }
+          
+          .section-title {
+            font-size: 2rem;
+          }
+          
+          .problems-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .reasons-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .final-cta-buttons {
+            flex-direction: column;
+            gap: 15px;
+          }
+        }
+
+        /* ヘッダースタイル */
+        header {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-cta {
+            background-color: var(--primary-color);
+            color: var(--light-color) !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-container">
+            <div class="logo">EVチャージマッチ</div>
+            <nav>
+                <ul>
+                    <li><a href="#service">サービス</a></li>
+                    <li><a href="#cases">導入事例</a></li>
+                    <li><a href="#faq">よくある質問</a></li>
+                    <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. ヒーローセクション -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">EVスタンド工事の悩みを解決。最適な業者と、最短でマッチング</h1>
+            <p class="hero-subtitle">専門知識がなくても、比較・検討・発注までをスムーズに。あなたのEV充電設備導入をトータルサポート</p>
+            <div class="cta-buttons">
+                <a href="#form" class="cta-primary">無料で業者を探す</a>
+                <a href="#download" class="cta-secondary">資料をダウンロード</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 市場動向・背景セクション -->
+    <section class="market-section">
+        <div class="section-container">
+            <h2 class="section-title">急成長するEV市場。今こそ充電インフラ整備のチャンス</h2>
+            <div class="market-content">
+                <div class="market-text">
+                    <p>日本のEV充電ステーション市場は急速に拡大しています。調査によると、市場規模は2024年の2億米ドルから2029年には17.9億米ドルへと、年平均成長率44.92%で成長すると予測されています。</p>
+                    <p>政府のカーボンニュートラル政策や補助金制度の拡充により、企業のEV導入は今後さらに加速。充電設備の需要は高まる一方です。</p>
+                    <p>しかし、多くの企業が充電設備導入のハードルに直面しています。専門知識の不足、適切な工事業者の選定、コスト管理など、様々な課題が存在します。</p>
+                    <p>私たちのプラットフォームは、そんな企業の悩みを解決し、スムーズなEV充電設備導入をサポートします。</p>
+                </div>
+                <div class="market-chart">
+                    <img src="https://placehold.jp/600x400.png" alt="EV充電市場の成長グラフ" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 課題提起セクション -->
+    <section class="problems-section">
+        <div class="section-container">
+            <h2 class="problems-title">こんなお悩みありませんか？</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-search"></i></div>
+                    <h3 class="problem-title">信頼できる業者選びに苦労している</h3>
+                    <p class="problem-text">「実績や評判を確認する方法がわからない」「技術力の判断基準がない」</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-coins"></i></div>
+                    <h3 class="problem-title">適正価格がわからず不安</h3>
+                    <p class="problem-text">「見積もりが妥当なのか判断できない」「追加費用が発生しないか心配」</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3 class="problem-title">専門知識がなく判断に迷う</h3>
+                    <p class="problem-text">「どんな充電器が最適なのかわからない」「設置場所や電力容量の検討が難しい」</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="problem-title">補助金申請の手続きが複雑</h3>
+                    <p class="problem-text">「申請条件や必要書類がわかりにくい」「手続きに時間と手間がかかる」</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-tools"></i></div>
+                    <h3 class="problem-title">工事品質に不安がある</h3>
+                    <p class="problem-text">「アフターサポート体制が不明確」「トラブル発生時の対応が心配」</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="problem-title">スケジュール管理が難しい</h3>
+                    <p class="problem-text">「工期がどれくらいかかるのかわからない」「進捗状況の把握が困難」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. サービス価値提案セクション -->
+    <section class="value-section" id="service">
+        <div class="section-container">
+            <h2 class="value-title">EVチャージマッチが選ばれる4つの理由</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="value-card-title">厳選された信頼性の高い工事業者のみをご紹介</h3>
+                    <p class="value-text">当プラットフォームに登録されている業者は、実績・技術力・アフターサポート体制など厳格な基準をクリアした企業のみ。安心して工事を依頼できます。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3 class="value-card-title">複数の見積もりを簡単に比較検討</h3>
+                    <p class="value-text">要件を一度入力するだけで、複数の業者から見積もりを取得。標準化された項目で比較できるため、最適な業者選びがスムーズに行えます。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-headset"></i></div>
+                    <h3 class="value-card-title">専門アドバイザーによる技術サポート</h3>
+                    <p class="value-text">充電器の選定や設置プランについて、専門知識を持つアドバイザーが無料でサポート。あなたの環境に最適な提案を受けられます。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="value-card-title">補助金申請の完全サポート</h3>
+                    <p class="value-text">複雑な補助金申請手続きもお任せください。必要書類の準備から申請代行まで、面倒な手続きをトータルサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. サービスの仕組みセクション -->
+    <section class="process-section">
+        <div class="section-container">
+            <h2 class="process-title">たった4ステップで、最適なEV充電設備導入を実現</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">簡単な要件入力</h3>
+                    <p class="step-text">設置場所や希望する充電器のタイプなど、基本的な情報を入力するだけ。専門知識がなくても大丈夫です。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">複数の業者から見積もり取得</h3>
+                    <p class="step-text">あなたの要件に合った厳選された業者から、詳細な見積もりが届きます。追加費用の心配もありません。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">比較検討と業者選定</h3>
+                    <p class="step-text">標準化された項目で各業者の見積もりを比較。価格だけでなく、実績や対応の早さなど多角的に検討できます。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">工事完了までのサポート</h3>
+                    <p class="step-text">業者選定後も、工事の進捗管理や品質チェックをサポート。アフターフォローまで安心してお任せいただけます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 導入事例セクション -->
+    <section class="cases-section" id="cases">
+        <div class="section-container">
+            <h2 class="cases-title">様々な企業で導入されています</h2>
+            <div class="cases-slider">
+                <div class="case-card">
+                    <h3 class="case-company">A社</h3>
+                    <p class="case-type">中小企業オフィス</p>
+                    <h4 class="case-subtitle">課題:</h4>
+                    <p class="case-text">社用車のEV化に伴い充電設備の導入を検討していたが、専門知識がなく適切な業者選びに苦労していた。</p>
+                    <h4 class="case-subtitle">解決策:</h4>
+                    <p class="case-text">当プラットフォームを通じて3社の見積もりを比較し、コストパフォーマンスに優れた業者を選定。</p>
+                    <h4 class="case-subtitle">効果:</h4>
+                    <p class="case-text">予算内で高品質な充電設備を導入でき、補助金申請もスムーズに完了。</p>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-company">B社</h3>
+                    <p class="case-type">商業施設</p>
+                    <h4 class="case-subtitle">課題:</h4>
+                    <p class="case-text">顧客サービスとしてEV充電設備の導入を計画していたが、設置場所や充電器タイプの選定に悩んでいた。</p>
+                    <h4 class="case-subtitle">解決策:</h4>
+                    <p class="case-text">専門アドバイザーのサポートを受けながら最適な設置プランを策定し、信頼できる業者に依頼。</p>
+                    <h4 class="case-subtitle">効果:</h4>
+                    <p class="case-text">来店客の滞在時間が増加し、新規顧客の獲得にも成功。投資回収の見通しも立てられた。</p>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-company">C社</h3>
+                    <p class="case-type">不動産デベロッパー</p>
+                    <h4 class="case-subtitle">課題:</h4>
+                    <p class="case-text">新築マンションへのEV充電設備導入を検討していたが、将来的な拡張性も考慮した設計が必要だった。</p>
+                    <h4 class="case-subtitle">解決策:</h4>
+                    <p class="case-text">複数の専門業者から提案を受け、将来のEV普及率増加にも対応できる柔軟な設計を採用。</p>
+                    <h4 class="case-subtitle">効果:</h4>
+                    <p class="case-text">物件の付加価値が向上し、環境に配慮した先進的なマンションとして差別化に成功。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 選ばれる理由セクション -->
+    <section class="reasons-section">
+        <div class="section-container">
+            <h2 class="reasons-title">他のサービスとはここが違う</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="reason-title">厳格な業者審査基準</h3>
+                    <p class="reason-text">登録業者は全て実績・技術力・アフターサポート体制などを厳しく審査。「悪質業者ゼロ」を徹底しています。</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3 class="reason-title">透明な料金体系</h3>
+                    <p class="reason-text">見積もりは全て標準フォーマットで提示。追加費用の心配がなく、何にいくらかかるのか明確です。</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="reason-title">専門知識を持つサポートチーム</h3>
+                    <p class="reason-text">EV充電設備の専門家があなたの疑問や相談に対応。最適な選択をサポートします。</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon"><i class="fas fa-wrench"></i></div>
+                    <h3 class="reason-title">充実したアフターフォロー</h3>
+                    <p class="reason-text">工事完了後も定期点検や不具合対応など、長期的なサポート体制を確保しています。</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon"><i class="fas fa-building"></i></div>
+                    <h3 class="reason-title">豊富な導入実績</h3>
+                    <p class="reason-text">全国500社以上の導入実績。様々な業種・規模の企業の課題解決をサポートしてきました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. よくある質問（FAQ）セクション -->
+    <section class="faq-section" id="faq">
+        <div class="section-container">
+            <h2 class="faq-title">よくある質問</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Q: サービスの利用料はかかりますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: 企業様からのサービス利用料は一切いただいておりません。業者選定から工事完了まで無料でご利用いただけます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Q: 対応エリアはどこまでですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: 全国47都道府県に対応しています。地域によって対応可能な業者数は異なりますが、どの地域でも複数の業者をご紹介可能です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Q: 工事完了までどれくらいの期間がかかりますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: 設置環境や充電器のタイプによって異なりますが、一般的には要件確定から2〜4週間程度です。詳細は見積もり時にご案内します。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Q: 補助金はどのくらい受けられますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: 自治体や導入する充電設備によって異なりますが、工事費用の最大1/2程度の補助が受けられるケースが多いです。詳細は専門アドバイザーがご案内します。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Q: アフターサポートはありますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A: はい、工事完了後も定期点検や不具合対応など、充実したアフターサポートをご提供しています。保証内容は業者によって異なりますので、見積もり時にご確認ください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA（行動喚起）セクション -->
+    <section class="final-cta-section" id="form">
+        <div class="section-container">
+            <h2 class="final-cta-title">今すぐEVスタンド導入の第一歩を踏み出しましょう</h2>
+            <p class="final-cta-text">EV充電設備の導入は、企業の環境対策と顧客サービス向上の両面で大きなメリットをもたらします。専門知識がなくても、当プラットフォームがあなたの導入をトータルサポート。まずは無料で業者を探して、最適なEV充電環境を実現しましょう。</p>
+            <div class="final-cta-buttons">
+                <a href="#" class="final-cta-primary">無料で業者を探す</a>
+                <a href="#download" class="final-cta-secondary">資料をダウンロード</a>
+                <a href="#contact" class="final-cta-secondary">お問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. フッターセクション -->
+    <footer class="footer-section" id="contact">
+        <div class="footer-container">
+            <div class="footer-company">
+                <div class="footer-logo">EVチャージマッチ</div>
+                <div class="footer-address">
+                    <p>株式会社EVチャージマッチ</p>
+                    <p>東京都千代田区〇〇町1-2-3</p>
+                </div>
+                <div class="footer-contact">
+                    <p>電話番号：03-XXXX-XXXX</p>
+                    <p>メール：info@evchargematch.co.jp</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-links-title">サービス</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#">業者検索</a></li>
+                    <li class="footer-link"><a href="#">見積もり比較</a></li>
+                    <li class="footer-link"><a href="#">補助金サポート</a></li>
+                    <li class="footer-link"><a href="#">アフターサポート</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-links-title">企業情報</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#">会社概要</a></li>
+                    <li class="footer-link"><a href="#">プライバシーポリシー</a></li>
+                    <li class="footer-link"><a href="#">利用規約</a></li>
+                    <li class="footer-link"><a href="#">特定商取引法に基づく表記</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EVチャージマッチ All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // FAQのアコーディオン機能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
